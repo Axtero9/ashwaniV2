@@ -1,0 +1,19 @@
+{
+  "name": "ashwani-decodes",
+  "version": "1.0.0",
+  "description": "Editorial landing page and content hub for Ashwani Decodes — everyday psychology and behavioral science.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 3000",
+    "serve": "npx serve -l 3000 ."
+  },
+  "keywords": [
+    "psychology",
+    "behavioral-science",
+    "dopamine-loops",
+    "mental-reframing",
+    "editorial-design"
+  ],
+  "author": "Ashwani Decodes",
+  "license": "MIT"
+}

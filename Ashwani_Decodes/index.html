@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashwani Decodes — Everyday Psychology & Behavioral Science</title>
+  <meta name="description" content="Decoding the hidden psychology behind everyday life. Actionable behavioral breakdowns, dopamine habit loops, and mental reframing by Ashwani.">
+  <meta name="keywords" content="psychology, behavioral science, dopamine loops, mental reframing, overthinking, social comparison, Ashwani Decodes">
+  <meta property="og:title" content="Ashwani Decodes — Everyday Psychology & Behavioral Science">
+  <meta property="og:description" content="Understand your brain instead of fighting it. Actionable breakdowns of why we overthink, compare, and check our phones.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%233A5A40'/><path d='M30 65 C30 40 50 30 70 30 C50 50 40 70 30 65 Z' fill='%23FAF8F5'/><circle cx='62' cy='38' r='5' fill='%23DDA15E'/></svg>">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'oat-base': '#FAF8F5',
+            'oat-warm': '#F7F4EE',
+            'oat-sand': '#EFE9DF',
+            'card-surface': '#FFFFFF',
+            'card-surface-soft': '#F5F1EB',
+            'border-subtle': '#E6E0D6',
+            'border-medium': '#D8D0C5',
+            'accent-sage': '#588157',
+            'accent-sage-light': '#EEF3ED',
+            'accent-olive': '#3A5A40',
+            'accent-moss': '#283618',
+            'accent-terracotta': '#C57B57',
+            'accent-terracotta-light': '#FBF0EB',
+            'accent-caramel': '#DDA15E',
+            'accent-caramel-light': '#FAF2E8',
+            'espresso': '#1F1D1A',
+            'espresso-soft': '#2D2A26',
+            'warm-grey': '#68625B',
+            'warm-muted': '#8E877F',
+            'cream': '#FAF8F5'
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-oat-base text-espresso antialiased min-h-screen flex flex-col selection:bg-accent-sage-light selection:text-accent-moss">
+
+  <!-- =========================================================================
+       1. NAVIGATION HEADER
+       ========================================================================= -->
+  <header class="sticky top-0 z-50 glass-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Wordmark & Monogram -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-10 h-10 rounded-full bg-accent-olive flex items-center justify-center text-cream shadow-sm group-hover:bg-accent-moss transition-colors">
+          <svg class="w-5 h-5 text-cream" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+            <path d="M12 6a6 6 0 0 0-6 6c0 3.3 2.7 6 6 6s6-2.7 6-6"/>
+            <circle cx="12" cy="12" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-serif text-xl sm:text-2xl font-medium tracking-tight text-espresso block leading-none">
+            Ashwani Decodes
+          </span>
+          <span class="text-[11px] font-sans font-medium uppercase tracking-wider text-warm-grey block mt-1">
+            Everyday Psychology
+          </span>
+        </div>
+      </a>
+
+      <!-- Center Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-warm-grey">
+        <a href="#topics" class="hover:text-accent-olive transition-colors">Topics</a>
+        <a href="#featured-decodes" class="hover:text-accent-olive transition-colors">Featured Decodes</a>
+        <a href="#reframer" class="hover:text-accent-olive transition-colors flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent-caramel"></span>
+          Interactive Reframer
+        </a>
+        <a href="#about" class="hover:text-accent-olive transition-colors">About</a>
+        <a href="#newsletter" class="hover:text-accent-olive transition-colors">Sunday Digest</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-3">
+        
+        <!-- Saved Library Drawer Toggle -->
+        <button 
+          id="open-saved-drawer-btn"
+          class="relative w-10 h-10 rounded-full bg-card-surface border border-border-subtle flex items-center justify-center text-espresso hover:border-accent-sage hover:text-accent-olive transition-all shadow-sm"
+          title="Saved Pocket Library"
+          aria-label="Open saved reframes and decodes"
+        >
+          <i data-lucide="bookmark" class="w-4 h-4"></i>
+          <span id="saved-items-count-badge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-accent-terracotta text-cream text-[10px] font-bold items-center justify-center shadow-sm" style="display: none;">0</span>
+        </button>
+
+        <!-- Instagram Pill Link -->
+        <a 
+          href="https://instagram.com/ashwani_decodes" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-full border border-border-subtle bg-card-surface text-warm-grey hover:text-accent-terracotta hover:border-accent-terracotta/40 transition-all"
+          title="Follow @ashwani_decodes on Instagram"
+        >
+          <i data-lucide="instagram" class="w-3.5 h-3.5 text-accent-terracotta"></i>
+          <span>@ashwani_decodes</span>
+        </a>
+
+        <!-- YouTube CTA Button (Primary) -->
+        <a 
+          href="http://youtube.com/@ashwani-decodes" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-primary text-xs sm:text-sm py-2 px-3.5 sm:px-4"
+        >
+          <svg class="w-4 h-4 fill-cream" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span class="font-medium">Watch on YouTube</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button 
+          id="mobile-menu-btn" 
+          class="md:hidden w-10 h-10 rounded-full border border-border-subtle flex items-center justify-center text-espresso hover:bg-card-surface transition-colors ml-1"
+          aria-label="Toggle navigation menu"
+        >
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border-subtle bg-oat-base px-6 py-6 space-y-4">
+      <a href="#topics" class="block text-base font-medium text-warm-grey hover:text-accent-olive mobile-nav-link">Topics & Pillars</a>
+      <a href="#featured-decodes" class="block text-base font-medium text-warm-grey hover:text-accent-olive mobile-nav-link">Featured Decodes</a>
+      <a href="#reframer" class="block text-base font-medium text-warm-grey hover:text-accent-olive mobile-nav-link">60-Second Daily Reframer</a>
+      <a href="#about" class="block text-base font-medium text-warm-grey hover:text-accent-olive mobile-nav-link">About Ashwani</a>
+      <a href="#newsletter" class="block text-base font-medium text-warm-grey hover:text-accent-olive mobile-nav-link">Sunday Digest</a>
+      <div class="pt-4 border-t border-border-subtle flex items-center gap-3">
+        <a href="https://instagram.com/ashwani_decodes" target="_blank" class="flex-1 py-2.5 rounded-full border border-border-subtle text-center text-xs font-semibold text-espresso">
+          Instagram: @ashwani_decodes
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+
+    <!-- =========================================================================
+         2. HERO SECTION
+         ========================================================================= -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+      <!-- Ambient Backdrops -->
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] ambient-glow-green pointer-events-none"></div>
+      <div class="absolute top-1/2 -right-40 w-[500px] h-[500px] ambient-glow-terracotta pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          
+          <!-- Hero Copy (Left Column) -->
+          <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+            
+            <!-- Tagline Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-sage-light border border-accent-sage/20 text-accent-olive text-xs font-semibold uppercase tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-accent-sage pulse-indicator"></span>
+              <span>BEHAVIORAL SCIENCE & EVERYDAY PSYCHOLOGY</span>
+            </div>
+
+            <!-- Headline with Editorial Serif & Italic Nuance -->
+            <h1 class="hero-headline text-4xl sm:text-5xl lg:text-6xl font-serif text-espresso leading-[1.12] tracking-tight">
+              Decoding the <span class="italic font-normal text-accent-olive">hidden psychology</span> behind everyday life.
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-base sm:text-lg text-warm-grey max-w-2xl leading-relaxed mx-auto lg:mx-0">
+              Why do we check phones without notifications? Why do we spiral into comparison or overthink at 2 AM? Actionable breakdowns to help you understand your brain instead of fighting it.
+            </p>
+
+            <!-- Dual Action CTAs -->
+            <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <a href="#featured-decodes" class="btn-primary">
+                <span>Explore Breakdowns</span>
+                <i data-lucide="arrow-down" class="w-4 h-4"></i>
+              </a>
+
+              <a 
+                href="http://youtube.com/@ashwani-decodes" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn-secondary group"
+              >
+                <i data-lucide="play-circle" class="w-5 h-5 text-accent-olive group-hover:scale-110 transition-transform"></i>
+                <span>Watch Latest Shorts</span>
+              </a>
+            </div>
+
+            <!-- Social Proof / Stats Strip -->
+            <div class="pt-6 border-t border-border-subtle/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-10 text-warm-grey">
+              <div>
+                <span class="font-serif text-2xl font-semibold text-espresso block">150K+</span>
+                <span class="text-xs text-warm-muted">Mindful Observers</span>
+              </div>
+              <div class="w-px h-8 bg-border-subtle"></div>
+              <div>
+                <span class="font-serif text-2xl font-semibold text-espresso block">60 Sec</span>
+                <span class="text-xs text-warm-muted">Cognitive Models</span>
+              </div>
+              <div class="w-px h-8 bg-border-subtle"></div>
+              <div>
+                <span class="font-serif text-2xl font-semibold text-accent-olive block">100%</span>
+                <span class="text-xs text-warm-muted">Empathetic Rigor</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Interactive Card: The "Mind Architecture" Explorer (Right Column) -->
+          <div class="lg:col-span-5">
+            <div class="bg-card-surface rounded-3xl border border-border-subtle p-6 sm:p-7 shadow-card relative overflow-hidden">
+              
+              <!-- Subtle top label -->
+              <div class="flex items-center justify-between mb-5">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-warm-grey flex items-center gap-1.5">
+                  <i data-lucide="activity" class="w-3.5 h-3.5 text-accent-sage"></i>
+                  The Everyday Habit Loop
+                </span>
+                <span class="badge-tag badge-sage text-[10px]">Interactive Metric</span>
+              </div>
+
+              <!-- System Selector Tabs -->
+              <div class="grid grid-cols-3 gap-1.5 p-1 bg-oat-warm rounded-xl border border-border-subtle mb-6 text-xs font-medium">
+                <button 
+                  class="hero-system-tab active py-2 px-1 text-center rounded-lg transition-all text-xs bg-accent-olive text-white font-medium"
+                  data-system="dopamine"
+                >
+                  Dopamine Loops
+                </button>
+                <button 
+                  class="hero-system-tab py-2 px-1 text-center rounded-lg transition-all text-xs text-warm-grey hover:text-espresso"
+                  data-system="comparison"
+                >
+                  Social Compare
+                </button>
+                <button 
+                  class="hero-system-tab py-2 px-1 text-center rounded-lg transition-all text-xs text-warm-grey hover:text-espresso"
+                  data-system="dmn"
+                >
+                  Night DMN
+                </button>
+              </div>
+
+              <!-- Dynamic Output Body -->
+              <div class="space-y-4">
+                
+                <div>
+                  <div class="flex items-center justify-between">
+                    <h3 id="hero-system-title" class="font-serif text-xl font-medium text-espresso">
+                      Dopamine Loops & Variable Schedules
+                    </h3>
+                    <span id="hero-system-tag" class="text-xs text-accent-olive font-serif italic">
+                      The Anticipation Engine
+                    </span>
+                  </div>
+                  <p id="hero-system-desc" class="text-xs text-warm-grey mt-1.5 leading-relaxed">
+                    Your brain releases far more dopamine in anticipation of an unknown outcome than when receiving the actual reward. This is why refreshing an empty inbox feels compulsive.
+                  </p>
+                </div>
+
+                <!-- Big Metric Box -->
+                <div class="p-4 rounded-2xl bg-oat-warm border border-border-subtle flex items-center justify-between">
+                  <div>
+                    <span id="hero-system-metric-val" class="font-serif text-3xl font-semibold text-accent-olive block leading-none">
+                      +180%
+                    </span>
+                    <span id="hero-system-metric-label" class="text-[11px] text-warm-grey block mt-1">
+                      Dopamine spike triggered by unpredictable reward cues
+                    </span>
+                  </div>
+                  <div class="w-10 h-10 rounded-full bg-accent-sage-light flex items-center justify-center text-accent-olive">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                  </div>
+                </div>
+
+                <!-- Trigger & Counter-Script Flow -->
+                <div class="space-y-2 pt-1 text-xs">
+                  <div class="flex items-start gap-2 text-espresso">
+                    <span class="font-bold text-accent-terracotta uppercase tracking-wider text-[10px] w-14 shrink-0 mt-0.5">Trigger:</span>
+                    <span id="hero-system-trigger" class="text-warm-grey">Subconscious hand reaching toward phone during brief micro-pauses</span>
+                  </div>
+                  <div class="flex items-start gap-2 text-espresso">
+                    <span class="font-bold text-accent-olive uppercase tracking-wider text-[10px] w-14 shrink-0 mt-0.5">Reframe:</span>
+                    <span id="hero-system-counter" class="text-espresso-soft font-medium">Create intentional friction: keep devices out of arm's reach.</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Bottom interactive tip -->
+              <div class="mt-6 pt-4 border-t border-border-subtle/70 flex items-center justify-between text-[11px] text-warm-muted">
+                <span>Click tabs above to simulate loops</span>
+                <a href="#reframer" class="text-accent-olive font-semibold hover:underline flex items-center gap-1">
+                  Open 60s Tool <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. CONTENT PILLARS & FILTER BAR
+         ========================================================================= -->
+    <section id="topics" class="py-10 bg-oat-warm border-y border-border-subtle">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-accent-olive block mb-1">
+              CURATED KNOWLEDGE BASE
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-medium text-espresso">
+              Pillars of Everyday Psychology
+            </h2>
+          </div>
+
+          <!-- Real-time Search Box -->
+          <div class="relative w-full md:w-80">
+            <i data-lucide="search" class="w-4 h-4 text-warm-muted absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input 
+              type="text" 
+              id="decodes-search" 
+              placeholder="Search decodes, topics, bias..." 
+              class="w-full bg-card-surface border border-border-subtle rounded-full pl-10 pr-9 py-2 text-xs sm:text-sm text-espresso placeholder:text-warm-muted focus:outline-none focus:border-accent-olive focus:ring-1 focus:ring-accent-olive transition-all"
+            />
+            <button 
+              id="clear-search-btn" 
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-warm-muted hover:text-espresso"
+              style="display: none;"
+              aria-label="Clear search"
+            >
+              <i data-lucide="x" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Pills Scrollable Container -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <button class="filter-pill active" data-category="all">
+            <span>All Topics</span>
+            <span class="pill-counter">6</span>
+          </button>
+          <button class="filter-pill" data-category="overthinking">
+            <span>Overthinking & Night Anxiety</span>
+            <span class="pill-counter">1</span>
+          </button>
+          <button class="filter-pill" data-category="dopamine">
+            <span>Digital Habits & Dopamine</span>
+            <span class="pill-counter">1</span>
+          </button>
+          <button class="filter-pill" data-category="comparison">
+            <span>Social Comparison & Self-Worth</span>
+            <span class="pill-counter">2</span>
+          </button>
+          <button class="filter-pill" data-category="relationships">
+            <span>Modern Relationship Psychology</span>
+            <span class="pill-counter">1</span>
+          </button>
+          <button class="filter-pill" data-category="mindset">
+            <span>Mindset & Hindi Decodes</span>
+            <span class="pill-counter">1</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. FEATURED DECODES GRID (VIDEO & ESSAY CARDS)
+         ========================================================================= -->
+    <section id="featured-decodes" class="py-20 md:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+          <div>
+            <span class="badge-tag badge-sage mb-2">EPISODIC BREAKDOWNS</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-medium text-espresso">
+              Featured Psychological Decodes
+            </h2>
+            <p class="text-sm sm:text-base text-warm-grey mt-2 max-w-xl">
+              Each breakdown deconstructs the evolutionary origins, modern environmental distortions, and an actionable cognitive antidote.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <span id="decodes-count-badge" class="badge-tag badge-oat font-sans text-xs">
+              6 Decodes
+            </span>
+          </div>
+        </div>
+
+        <!-- Cards Grid Container (Rendered dynamically by app.js) -->
+        <div id="decodes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dynamically injected cards -->
+        </div>
+
+        <!-- No Results Fallback State -->
+        <div id="decodes-no-results" class="text-center py-16 hidden">
+          <i data-lucide="help-circle" class="w-12 h-12 text-warm-muted mx-auto mb-3"></i>
+          <h3 class="font-serif text-xl font-medium text-espresso">No matching decodes found</h3>
+          <p class="text-xs sm:text-sm text-warm-grey mt-1">Try adjusting your search terms or clearing category filters.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. INTERACTIVE FEATURE: "THE 60-SECOND DAILY REFRAMER"
+         ========================================================================= -->
+    <section id="reframer" class="py-20 bg-oat-warm border-y border-border-subtle relative overflow-hidden">
+      <!-- Ambient Glow -->
+      <div class="absolute -bottom-24 left-1/4 w-[600px] h-[400px] ambient-glow-green pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- Section Title & Intro -->
+        <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <span class="badge-tag badge-terracotta">INTERACTIVE MENTAL GYM</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-espresso">
+            The 60-Second Daily Reframer
+          </h2>
+          <p class="text-base text-warm-grey leading-relaxed">
+            Select what your brain is wrestling with right now. Step out of the evolutionary trap by identifying the cognitive mechanism, adopting an objective lens, and taking one immediate somatic micro-action.
+          </p>
+        </div>
+
+        <!-- Two-Column Interactive Tool -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          
+          <!-- Left Column: Trigger Selection -->
+          <div class="lg:col-span-5 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-warm-grey block mb-2">
+              Select Your Current Trigger:
+            </span>
+
+            <button class="reframer-trigger-btn active" data-trigger="trigger-a">
+              <div class="flex items-start gap-3">
+                <span class="trigger-indicator w-7 h-7 rounded-full bg-accent-sage-light text-accent-olive flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">
+                  1
+                </span>
+                <div>
+                  <h4 class="trigger-text font-serif text-base font-medium text-espresso leading-snug">
+                    "Someone left me on read / suddenly got distant."
+                  </h4>
+                  <p class="trigger-sub text-xs text-warm-muted mt-1">Ambiguity Intolerance & Ego Protection</p>
+                </div>
+              </div>
+            </button>
+
+            <button class="reframer-trigger-btn" data-trigger="trigger-b">
+              <div class="flex items-start gap-3">
+                <span class="trigger-indicator w-7 h-7 rounded-full bg-accent-sage-light text-accent-olive flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">
+                  2
+                </span>
+                <div>
+                  <h4 class="trigger-text font-serif text-base font-medium text-espresso leading-snug">
+                    "Feeling like everyone my age is ahead of me."
+                  </h4>
+                  <p class="trigger-sub text-xs text-warm-muted mt-1">Upward Social Comparison Bias</p>
+                </div>
+              </div>
+            </button>
+
+            <button class="reframer-trigger-btn" data-trigger="trigger-c">
+              <div class="flex items-start gap-3">
+                <span class="trigger-indicator w-7 h-7 rounded-full bg-accent-sage-light text-accent-olive flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">
+                  3
+                </span>
+                <div>
+                  <h4 class="trigger-text font-serif text-base font-medium text-espresso leading-snug">
+                    "Trapped in an infinite 15-minute scrolling loop."
+                  </h4>
+                  <p class="trigger-sub text-xs text-warm-muted mt-1">Variable Ratio Dopamine Traps</p>
+                </div>
+              </div>
+            </button>
+
+            <button class="reframer-trigger-btn" data-trigger="trigger-d">
+              <div class="flex items-start gap-3">
+                <span class="trigger-indicator w-7 h-7 rounded-full bg-accent-sage-light text-accent-olive flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">
+                  4
+                </span>
+                <div>
+                  <h4 class="trigger-text font-serif text-base font-medium text-espresso leading-snug">
+                    "Paralyzed by perfectionism before starting a project."
+                  </h4>
+                  <p class="trigger-sub text-xs text-warm-muted mt-1">Ego-Threat Preservation</p>
+                </div>
+              </div>
+            </button>
+
+            <button class="reframer-trigger-btn" data-trigger="trigger-e">
+              <div class="flex items-start gap-3">
+                <span class="trigger-indicator w-7 h-7 rounded-full bg-accent-sage-light text-accent-olive flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">
+                  5
+                </span>
+                <div>
+                  <h4 class="trigger-text font-serif text-base font-medium text-espresso leading-snug">
+                    "Can't sleep because of a random awkward moment from years ago."
+                  </h4>
+                  <p class="trigger-sub text-xs text-warm-muted mt-1">The Spotlight Effect & Memory Auditing</p>
+                </div>
+              </div>
+            </button>
+
+            <!-- Custom User Trigger Form -->
+            <form id="custom-trigger-form" class="pt-4 border-t border-border-subtle">
+              <label for="custom-trigger-input" class="text-xs font-semibold text-warm-grey block mb-1.5">
+                Have a different situation? Enter it below:
+              </label>
+              <div class="flex gap-2">
+                <input 
+                  type="text" 
+                  id="custom-trigger-input" 
+                  placeholder="e.g. Nervous before presenting tomorrow..." 
+                  class="flex-1 bg-card-surface border border-border-subtle rounded-xl px-3.5 py-2.5 text-xs text-espresso focus:outline-none focus:border-accent-olive"
+                />
+                <button type="submit" class="btn-primary text-xs py-2 px-3 shrink-0">
+                  <span>Reframe</span>
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </form>
+
+          </div>
+
+          <!-- Right Column: Dynamic Reframe Display Box -->
+          <div class="lg:col-span-7">
+            <div id="reframer-output-container" class="bg-card-surface rounded-3xl border border-border-subtle p-7 sm:p-9 shadow-card relative transition-all duration-300">
+              
+              <!-- Top Header & Current Trigger Quote -->
+              <div class="pb-6 border-b border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-accent-olive block">
+                    Active Cognitive Audit
+                  </span>
+                  <h3 id="reframe-current-trigger-title" class="font-serif text-xl sm:text-2xl font-medium text-espresso italic mt-1">
+                    "Someone left me on read / suddenly got distant."
+                  </h3>
+                </div>
+                <span id="reframe-neuro-tag" class="badge-tag badge-sage text-[10px] self-start sm:self-auto">
+                  Ambiguity Defusion · Hanlon's Razor
+                </span>
+              </div>
+
+              <!-- 3-Part Reframe Anatomy -->
+              <div class="py-6 space-y-6">
+                
+                <!-- Part 1: The Cognitive Mechanism -->
+                <div class="space-y-1.5">
+                  <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent-terracotta">
+                    <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+                    <span>1. The Cognitive Mechanism (What the Brain is Doing)</span>
+                  </div>
+                  <p id="reframe-mechanism-text" class="text-sm sm:text-base text-warm-grey leading-relaxed pl-6 border-l-2 border-accent-terracotta/40">
+                    Negative Interpretation Bias & Ambiguity Intolerance. In the absence of immediate data, your ancestral survival brain manufactures worst-case scenarios to prepare for social exclusion and guard against ego rejection.
+                  </p>
+                </div>
+
+                <!-- Part 2: The Healthy Reframe -->
+                <div class="space-y-1.5">
+                  <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent-olive">
+                    <i data-lucide="eye" class="w-4 h-4"></i>
+                    <span>2. The Healthy Reframe (How to View it Objectively)</span>
+                  </div>
+                  <p id="reframe-healthy-text" class="text-base sm:text-lg font-serif italic text-espresso leading-snug pl-6 border-l-2 border-accent-olive bg-oat-warm/60 py-3 rounded-r-xl">
+                    "Silence is an absence of communication, not an indictment of your worth. People are rarely thinking about you with calculated malice; they are simply overwhelmed, distracted, or managing their own chaotic internal fires."
+                  </p>
+                </div>
+
+                <!-- Part 3: Micro-Action (60 Seconds) -->
+                <div class="space-y-1.5">
+                  <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent-caramel">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
+                    <span>3. Micro-Action (Immediate 60-Second Reset)</span>
+                  </div>
+                  <div class="bg-card-surface-soft p-4 rounded-xl border border-border-subtle text-xs sm:text-sm text-espresso-soft flex items-start gap-3">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-accent-sage shrink-0 mt-0.5"></i>
+                    <p id="reframe-action-text" class="leading-relaxed">
+                      Place your phone facedown in another room for 30 minutes. Regain ownership of your physical environment and attention before checking for a reply.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Empirical Stat Callout -->
+              <div class="p-3.5 rounded-xl bg-oat-warm border border-border-subtle/80 flex items-center gap-3 text-xs text-warm-grey">
+                <i data-lucide="info" class="w-4 h-4 text-accent-olive shrink-0"></i>
+                <span id="reframe-stat-text">85% of unanswered texts are due to everyday cognitive overload, not personal disregard.</span>
+              </div>
+
+              <!-- Bottom Reframer Action Bar -->
+              <div class="mt-6 pt-5 border-t border-border-subtle flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-2">
+                  <button 
+                    id="copy-reframe-btn" 
+                    class="btn-secondary text-xs py-2 px-3.5"
+                    title="Copy full reframe breakdown"
+                  >
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                    <span>Copy Reframe</span>
+                  </button>
+
+                  <button 
+                    id="save-reframe-btn" 
+                    class="btn-secondary text-xs py-2 px-3.5"
+                    title="Save to your local Pocket Library"
+                  >
+                    <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
+                    <span>Save to Pocket Reframes</span>
+                  </button>
+                </div>
+
+                <a 
+                  href="http://youtube.com/@ashwani-decodes" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="text-xs text-accent-olive font-semibold hover:underline flex items-center gap-1"
+                >
+                  Watch Shorts Breakdown <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. CREATOR STATEMENT / ABOUT ASHWANI
+         ========================================================================= -->
+    <section id="about" class="py-20 md:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="bg-card-surface-soft border border-border-subtle rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+          
+          <!-- Background Organic Texture Accent -->
+          <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-accent-sage-light/50 pointer-events-none"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
+            
+            <!-- Creator Portrait Container (Left) -->
+            <div class="lg:col-span-5">
+              <div class="relative mx-auto max-w-sm lg:max-w-none">
+                <!-- Warm Linen Frame & Shadow -->
+                <div class="aspect-[4/5] rounded-2xl overflow-hidden border-4 border-card-surface shadow-card bg-oat-warm relative">
+                  <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
+                    alt="Ashwani Decodes Creator Portrait" 
+                    class="w-full h-full object-cover grayscale-[15%] contrast-[1.05]"
+                    loading="lazy"
+                  />
+                  <!-- Gradient Vignette -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-espresso/60 via-transparent to-transparent"></div>
+                  
+                  <div class="absolute bottom-4 left-4 right-4 text-cream">
+                    <span class="font-serif text-xl font-medium block">Ashwani</span>
+                    <span class="text-xs opacity-90 font-sans">Behavioral Science Communicator</span>
+                  </div>
+                </div>
+
+                <!-- Floating Quote Accent Tag -->
+                <div class="absolute -bottom-4 -right-4 bg-card-surface border border-border-subtle rounded-xl p-3 shadow-md hidden sm:flex items-center gap-2 text-xs font-semibold text-accent-olive">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-accent-sage"></i>
+                  <span>Zero Toxic Positivity. Pure Science.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Creator Bio & Mission Statement (Right) -->
+            <div class="lg:col-span-7 space-y-6">
+              
+              <span class="badge-tag badge-sage">ABOUT ASHWANI DECODES</span>
+              
+              <!-- Quote Highlight -->
+              <blockquote class="font-serif italic text-2xl sm:text-3xl text-espresso leading-snug">
+                "We often treat our daily habits and emotional triggers as personal flaws. In reality, they are predictable cognitive scripts. When you decode the pattern, the struggle fades."
+              </blockquote>
+
+              <p class="text-sm sm:text-base text-warm-grey leading-relaxed">
+                Ashwani Decodes is a space at the intersection of evolutionary psychology, cognitive science, and everyday life. Rather than generic motivational mantras, Ashwani translates peer-reviewed research into 60-second intuitive mental models that you can apply immediately while scrolling, working, or falling asleep.
+              </p>
+
+              <!-- Three Core Principles -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                <div class="p-4 rounded-xl bg-card-surface border border-border-subtle">
+                  <span class="font-serif text-lg font-semibold text-accent-olive block">1. No Jargon</span>
+                  <span class="text-xs text-warm-muted mt-1 block">Explained simply enough to grasp in 60 seconds.</span>
+                </div>
+                <div class="p-4 rounded-xl bg-card-surface border border-border-subtle">
+                  <span class="font-serif text-lg font-semibold text-accent-terracotta block">2. Empathy First</span>
+                  <span class="text-xs text-warm-muted mt-1 block">Your brain is doing what it evolved to do.</span>
+                </div>
+                <div class="p-4 rounded-xl bg-card-surface border border-border-subtle">
+                  <span class="font-serif text-lg font-semibold text-accent-caramel block">3. Micro-Action</span>
+                  <span class="text-xs text-warm-muted mt-1 block">Every insight comes with a tangible intervention.</span>
+                </div>
+              </div>
+
+              <!-- Channel Connect Buttons -->
+              <div class="pt-4 flex flex-wrap items-center gap-4">
+                <a 
+                  href="http://youtube.com/@ashwani-decodes" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn-primary text-xs sm:text-sm py-2.5 px-4"
+                >
+                  <i data-lucide="play" class="w-4 h-4 fill-cream"></i>
+                  <span>Subscribe on YouTube (@ashwani-decodes)</span>
+                </a>
+
+                <a 
+                  href="https://instagram.com/ashwani_decodes" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn-secondary text-xs sm:text-sm py-2.5 px-4"
+                >
+                  <i data-lucide="instagram" class="w-4 h-4 text-accent-terracotta"></i>
+                  <span>Follow on Instagram (@ashwani_decodes)</span>
+                </a>
+              </div>
+
+              <!-- Outro Signature Tagline -->
+              <div class="pt-4 border-t border-border-subtle/80 flex items-center justify-between text-xs text-warm-muted">
+                <span class="font-serif italic text-accent-olive font-medium">Decodes the psychology behind everyday life.</span>
+                <span>Delhi & Global · Established 2024</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. WEEKLY NEWSLETTER / DIGEST ("SUNDAY DECODES")
+         ========================================================================= -->
+    <section id="newsletter" class="py-20 bg-oat-warm border-t border-border-subtle">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        
+        <span class="badge-tag badge-sage">WEEKLY EMAIL ESSAYS</span>
+
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-espresso">
+          Sunday Decodes: One everyday psychological script broken down in 2 minutes.
+        </h2>
+
+        <p class="text-sm sm:text-base text-warm-grey max-w-2xl mx-auto leading-relaxed">
+          Every Sunday morning. No ads, no fluff, no spam. Just one behavioral mechanism deconstructed with clarity to start your week with self-awareness.
+        </p>
+
+        <!-- Subscription Form -->
+        <form id="newsletter-form" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3 pt-2">
+          <input 
+            type="email" 
+            id="newsletter-email" 
+            required 
+            placeholder="Enter your email address..." 
+            class="flex-1 bg-card-surface border border-border-subtle rounded-full px-5 py-3 text-sm text-espresso placeholder:text-warm-muted focus:outline-none focus:border-accent-olive focus:ring-1 focus:ring-accent-olive shadow-sm"
+          />
+          <button type="submit" class="btn-primary text-sm py-3 px-6 shrink-0">
+            <span>Join 35,000+ Readers</span>
+          </button>
+        </form>
+
+        <div class="flex items-center justify-center gap-4 text-xs text-warm-muted pt-2">
+          <span class="flex items-center gap-1">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-accent-sage"></i>
+            100% Free · Unsubscribe anytime
+          </span>
+          <span>·</span>
+          <button id="preview-digest-btn" class="text-accent-olive hover:underline font-semibold flex items-center gap-1">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            Preview Sample Edition #42
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       8. FOOTER
+       ========================================================================= -->
+  <footer class="bg-card-surface border-t border-border-subtle py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <!-- Brand Summary -->
+        <div class="md:col-span-2 space-y-3">
+          <a href="#" class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-accent-olive flex items-center justify-center text-cream">
+              <svg class="w-4 h-4 text-cream" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/>
+                <circle cx="12" cy="12" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="font-serif text-xl font-medium text-espresso">Ashwani Decodes</span>
+          </a>
+          <p class="text-xs sm:text-sm text-warm-grey max-w-sm leading-relaxed">
+            Translating evolutionary neuroscience, behavioral economics, and cognitive psychology into 60-second everyday clarity.
+          </p>
+          <p class="text-xs font-serif italic text-accent-olive">
+            "Understand your brain instead of fighting it."
+          </p>
+        </div>
+
+        <!-- Topic Index -->
+        <div class="space-y-2.5">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-espresso">Core Topics</h4>
+          <ul class="text-xs space-y-2 text-warm-grey">
+            <li><a href="#featured-decodes" class="hover:text-accent-olive transition-colors">Dopamine & Habit Loops</a></li>
+            <li><a href="#featured-decodes" class="hover:text-accent-olive transition-colors">Overthinking & Night DMN</a></li>
+            <li><a href="#featured-decodes" class="hover:text-accent-olive transition-colors">Social Comparison & Envy</a></li>
+            <li><a href="#featured-decodes" class="hover:text-accent-olive transition-colors">Attachment & Reactance</a></li>
+            <li><a href="#featured-decodes" class="hover:text-accent-olive transition-colors">Hindi Behavioral Decodes</a></li>
+          </ul>
+        </div>
+
+        <!-- Creator Links -->
+        <div class="space-y-2.5">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-espresso">Connect with Ashwani</h4>
+          <ul class="text-xs space-y-2 text-warm-grey">
+            <li>
+              <a href="http://youtube.com/@ashwani-decodes" target="_blank" rel="noopener noreferrer" class="hover:text-accent-olive flex items-center gap-1.5 transition-colors">
+                <i data-lucide="youtube" class="w-3.5 h-3.5 text-red-600"></i>
+                <span>YouTube: @ashwani-decodes</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/ashwani_decodes" target="_blank" rel="noopener noreferrer" class="hover:text-accent-olive flex items-center gap-1.5 transition-colors">
+                <i data-lucide="instagram" class="w-3.5 h-3.5 text-accent-terracotta"></i>
+                <span>Instagram: @ashwani_decodes</span>
+              </a>
+            </li>
+            <li>
+              <a href="#reframer" class="hover:text-accent-olive flex items-center gap-1.5 transition-colors">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-accent-caramel"></i>
+                <span>60-Second Daily Reframer</span>
+              </a>
+            </li>
+            <li>
+              <a href="#newsletter" class="hover:text-accent-olive flex items-center gap-1.5 transition-colors">
+                <i data-lucide="mail" class="w-3.5 h-3.5 text-accent-sage"></i>
+                <span>Sunday Decodes Digest</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Minimalist Copyright -->
+      <div class="pt-8 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-warm-muted">
+        <div>
+          Ashwani Decodes © 2026. Dedicated to self-understanding without self-judgment.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-espresso transition-colors">Back to top ↑</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODALS & DRAWERS
+       ========================================================================= -->
+
+  <!-- 1. Decode Deep-Dive Modal Drawer -->
+  <div id="decode-modal-overlay" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div id="decode-modal-container" class="modal-content relative">
+      <!-- Injected by app.js openDecodeModal() -->
+    </div>
+  </div>
+
+  <!-- 2. Sunday Digest Sample Issue Modal -->
+  <div id="digest-modal-overlay" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-content max-w-xl">
+      <div class="p-6 md:p-8 bg-oat-warm border-b border-border-subtle flex items-start justify-between">
+        <div>
+          <span class="badge-tag badge-sage text-[10px] mb-2">SUNDAY DECODES #42</span>
+          <h3 class="font-serif text-2xl font-medium text-espresso">The 20-Minute Dopamine Reset</h3>
+          <p class="text-xs text-warm-grey mt-1">Written by Ashwani · 2 min read</p>
+        </div>
+        <button onclick="closeDigestPreview()" class="w-8 h-8 rounded-full bg-white text-espresso flex items-center justify-center hover:bg-card-surface-soft shadow-sm">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="p-6 md:p-8 space-y-4 text-espresso text-sm leading-relaxed">
+        <p class="editorial-dropcap text-espresso-soft">
+          When you feel restless, distracted, and unable to focus on deep work, your baseline dopamine isn't depleted—it's scattered across micro-rewards.
+        </p>
+
+        <p class="text-warm-grey">
+          Every time you check a push notification, reply to a reel, or glance at stocks, you trigger a tiny phasic spike followed by a dip beneath baseline. Do this 30 times an hour, and your tonic dopamine flatlines. The result? Sluggishness and mental fatigue.
+        </p>
+
+        <div class="p-4 rounded-xl bg-card-surface-soft border border-border-subtle space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-accent-olive block">The Sunday Protocol:</span>
+          <ul class="text-xs space-y-1.5 text-espresso-soft">
+            <li>• Step 1: Place phone in a closed drawer for 20 continuous minutes.</li>
+            <li>• Step 2: Do a zero-dopamine activity: look out a window, brew hot tea, or stretch.</li>
+            <li>• Step 3: Notice the urge to check. Do not fight it; watch the craving wave peak and subside.</li>
+          </ul>
+        </div>
+
+        <p class="text-xs text-warm-muted italic">
+          "Friction is the ultimate antidote to habit loops. Enjoy your Sunday."
+        </p>
+
+        <div class="pt-4 border-t border-border-subtle flex justify-end">
+          <button onclick="closeDigestPreview()" class="btn-primary text-xs py-2 px-4">
+            Close Sample Issue
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Saved Pocket Library Drawer (Slide-Over) -->
+  <div id="saved-drawer-overlay" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-content max-w-md max-h-[85vh] p-6 space-y-6">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-border-subtle">
+        <div class="flex items-center gap-2">
+          <i data-lucide="bookmark-check" class="w-5 h-5 text-accent-olive"></i>
+          <h3 class="font-serif text-xl font-medium text-espresso">My Pocket Library</h3>
+        </div>
+        <button id="close-saved-drawer-btn" class="w-8 h-8 rounded-full bg-oat-warm hover:bg-card-surface-soft flex items-center justify-center text-espresso">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Saved Reframes Section -->
+      <div class="space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-warm-grey flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-accent-caramel"></i>
+          Saved 60-Second Reframes
+        </h4>
+        <div id="saved-reframes-list" class="space-y-2 max-h-56 overflow-y-auto pr-1">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+
+      <!-- Saved Decodes Section -->
+      <div class="space-y-3 pt-3 border-t border-border-subtle">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-warm-grey flex items-center gap-1.5">
+          <i data-lucide="book-open" class="w-3.5 h-3.5 text-accent-sage"></i>
+          Bookmarked Decodes
+        </h4>
+        <div id="saved-decodes-list" class="space-y-2 max-h-56 overflow-y-auto pr-1">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+
+      <div class="text-[11px] text-warm-muted text-center pt-2">
+        Items are safely stored in your browser's local memory.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" aria-live="polite"></div>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+  </script>
+
+  <!-- Application Script -->
+  <script src="js/app.js"></script>
+</body>
+</html>
